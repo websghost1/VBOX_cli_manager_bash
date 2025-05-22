@@ -1,0 +1,119 @@
+
+VirtualBox Command Line Guide
+
+1. List all virtual machines:
+   Command:
+       VBoxManage list vms
+   Example:
+       VBoxManage list vms
+   - This shows a list of all virtual machines on your computer.
+   - You will see their names and UUIDs (unique numbers).
+
+2. Start a virtual machine:
+   Command:
+       VBoxManage startvm "VM_NAME" --type headless
+   Example:
+       VBoxManage startvm "UbuntuVM" --type headless
+   - This starts the virtual machine in the background (without a screen).
+
+3. Power off a virtual machine:
+   Command:
+       VBoxManage controlvm "VM_NAME" poweroff
+   Example:
+       VBoxManage controlvm "UbuntuVM" poweroff
+   - This is like unplugging the computer immediately (no saving).
+   
+shutdown a virtual machine:
+command:
+VboxManage controlvm "vm_name" acpipowerbutton
+
+
+4. List running virtual machines:
+   Command:
+       VBoxManage list runningvms
+   Example:
+       VBoxManage list runningvms
+   - This shows which virtual machines are currently running.
+
+5. Show details about a virtual machine:
+   Command:
+       VBoxManage showvminfo "VM_NAME"
+   Example:
+       VBoxManage showvminfo "UbuntuVM"
+   - This shows the virtual machine's details, like:
+     - RAM (Memory) size
+     - Number of CPUs
+     - Operating system type
+
+6. Change virtual machine settings:
+   Command:
+       VBoxManage modifyvm "VM_NAME" --memory SIZE_IN_MB
+   Example:
+       VBoxManage modifyvm "UbuntuVM" --memory 4096
+   - This changes the RAM (Memory) of the virtual machine to 4GB.
+
+7. Delete a virtual machine:
+   Command:
+       VBoxManage unregistervm "VM_NAME" --delete
+   Example:
+       VBoxManage unregistervm "UbuntuVM" --delete
+   - This completely deletes the virtual machine and its files.
+
+8. Create a new virtual machine:
+   Command:
+       VBoxManage createvm --name "NEW_VM_NAME" --register
+   Example:
+       VBoxManage createvm --name "NewUbuntuVM" --register
+   - This creates a new virtual machine (empty).
+
+9. Attach a virtual hard disk:
+   Command:
+       VBoxManage storageattach "VM_NAME" --storagectl "SATA" --port 0 --device 0 --type hdd --medium "PATH_TO_VDI"
+   Example:
+       VBoxManage storageattach "UbuntuVM" --storagectl "SATA" --port 0 --device 0 --type hdd --medium "/home/user/VirtualBox VMs/UbuntuVM/UbuntuVM.vdi"
+   - This attaches a virtual hard disk to the virtual machine.
+
+10. Take a snapshot:
+    Command:
+        VBoxManage snapshot "VM_NAME" take "SNAPSHOT_NAME"
+    Example:
+        VBoxManage snapshot "UbuntuVM" take "BeforeUpdate"
+    - This saves the current state of the virtual machine.
+
+11. Restore a snapshot:
+    Command:
+        VBoxManage snapshot "VM_NAME" restore "SNAPSHOT_NAME"
+    Example:
+        VBoxManage snapshot "UbuntuVM" restore "BeforeUpdate"
+    - This rolls back the virtual machine to the saved state.
+
+12. List available snapshots:
+    Command:
+        VBoxManage snapshot "VM_NAME" list
+    Example:
+        VBoxManage snapshot "UbuntuVM" list
+    - This shows all snapshots taken for the virtual machine.
+
+13. Enable Remote Desktop on a VM:
+    Command:
+        VBoxManage modifyvm "VM_NAME" --vrde on
+    Example:
+        VBoxManage modifyvm "UbuntuVM" --vrde on
+    - This enables Remote Desktop access to the virtual machine.
+
+14. Show VirtualBox system properties:
+    Command:
+        VBoxManage list systemproperties
+    Example:
+        VBoxManage list systemproperties
+    - This shows the system-wide settings for VirtualBox.
+
+15. Show VirtualBox version:
+    Command:
+        VBoxManage -v
+    Example:
+        VBoxManage -v
+    - This shows the version of VirtualBox installed.
+
+This guide covers the most common VirtualBox commands for managing virtual machines. 
+You can use these commands to list, start, stop, modify, and delete virtual machines.
